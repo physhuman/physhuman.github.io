@@ -1,0 +1,105 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.hero {
+  background-color: #fff;
+}
+
+.publication-title {
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 600;
+  color: #363636;
+}
+
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.navbar-item {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 0.95rem;
+}
+
+.navbar-item:hover {
+  color: #3273dc;
+}
+
+.section {
+  padding: 3rem 1.5rem;
+}
+
+.title {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.table {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+.table td, .table th {
+  vertical-align: middle;
+}
+
+.footer {
+  background-color: #fafafa;
+  padding: 3rem 1.5rem;
+}
+
+.footer a {
+  color: #3273dc;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Organizer and speaker images */
+.image.is-150x150 {
+  height: 150px;
+  width: 150px;
+}
+
+.image.is-150x150 img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  background-color: #e0e0e0;
+}
+
+/* Links */
+.title a {
+  color: #363636;
+  text-decoration: none;
+}
+
+.title a:hover {
+  color: #3273dc;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .columns.is-multiline .column.is-one-fifth {
+    width: 50%;
+  }
+  
+  .navbar-menu {
+    display: none;
+  }
+  
+  .section {
+    padding: 2rem 1rem;
+  }
+}
