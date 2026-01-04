@@ -8,6 +8,24 @@ body {
 
 .hero {
   background-color: #fff;
+  position: relative;
+}
+
+.hero.hero-with-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.65);
+  z-index: 0;
+}
+
+.hero.hero-with-overlay .hero-body {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 1.5rem;
 }
 
 .publication-title {
