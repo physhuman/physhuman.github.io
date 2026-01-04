@@ -10,15 +10,6 @@ body {
   background-color: #fff;
 }
 
-.hero.is-custom-bg {
-  background-image: url('../images/AI-generated-bg.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  min-height: 600px;
-}
-
 .publication-title {
   font-family: 'Google Sans', sans-serif;
   font-weight: 600;
