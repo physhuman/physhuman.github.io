@@ -22,15 +22,22 @@
   </script>
   <style>
     /* Hide ClustrMaps globe widget while keeping tracking active */
-    #clstr_globe {
-      display: none;
-      transform: scale(0.25);
-      transform-origin: bottom right;
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      z-index: 1000;
-      display: none; /* Hide the map */
+    /* Hide the canvas element that renders the globe */
+    canvas[id*="cluster"] {
+      display: none !important;
+    }
+    /* Hide any iframe created by ClustrMaps */
+    iframe[src*="clustrmaps"] {
+      display: none !important;
+    }
+    /* Hide the widget container div */
+    div[id*="cluster"] {
+      display: none !important;
+    }
+    /* Additional catch-all for ClustrMaps elements */
+    [class*="clustrmaps"],
+    [id*="clustrmaps"] {
+      display: none !important;
     }
   </style>
 </head>
