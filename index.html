@@ -21,9 +21,14 @@
     };
   </script>
   <style>
-    /* Hide ClustrMaps globe widget while still tracking visitors */
+    /* Scale down ClustrMaps globe widget to 1/4 size */
     #clstr_globe {
-      display: none !important;
+      transform: scale(0.25);
+      transform-origin: bottom right;
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      z-index: 1000;
     }
   </style>
 </head>
