@@ -24,6 +24,13 @@
     /* Hide ClustrMaps globe widget while keeping tracking active */
     #clstr_globe {
       display: none;
+      transform: scale(0.25);
+      transform-origin: bottom right;
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      z-index: 1000;
+      display: none; /* Hide the map */
     }
   </style>
 </head>
