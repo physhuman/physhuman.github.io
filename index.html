@@ -25,21 +25,110 @@
     /* Hide the canvas element that renders the globe */
     canvas[id*="cluster"] {
       display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      width: 0 !important;
+      height: 0 !important;
+      position: absolute !important;
+      left: -9999px !important;
     }
     /* Hide any iframe created by ClustrMaps */
     iframe[src*="clustrmaps"] {
       display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      width: 0 !important;
+      height: 0 !important;
+      position: absolute !important;
+      left: -9999px !important;
     }
     /* Hide the widget container div */
     div[id*="cluster"] {
       display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      width: 0 !important;
+      height: 0 !important;
+      position: absolute !important;
+      left: -9999px !important;
     }
     /* Additional catch-all for ClustrMaps elements */
     [class*="clustrmaps"],
-    [id*="clustrmaps"] {
+    [id*="clustrmaps"],
+    a[href*="clustrmaps"] {
       display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      width: 0 !important;
+      height: 0 !important;
+      position: absolute !important;
+      left: -9999px !important;
     }
   </style>
+  <script>
+    // Hide all ClustrMaps elements that might be created dynamically
+    function hideClustrMaps() {
+      // Find all elements that might be related to ClustrMaps
+      const selectors = [
+        'canvas[id*="cluster"]',
+        'iframe[src*="clustrmaps"]',
+        'div[id*="cluster"]',
+        '[class*="clustrmaps"]',
+        '[id*="clustrmaps"]',
+        'a[href*="clustrmaps"]',
+        '#clstr_globe'
+      ];
+
+      selectors.forEach(selector => {
+        document.querySelectorAll(selector).forEach(el => {
+          el.style.display = 'none';
+          el.style.visibility = 'hidden';
+          el.style.opacity = '0';
+          el.style.width = '0';
+          el.style.height = '0';
+          el.style.position = 'absolute';
+          el.style.left = '-9999px';
+        });
+      });
+
+      // Also hide any siblings of the script tag
+      const scriptTag = document.getElementById('clstr_globe');
+      if (scriptTag && scriptTag.nextSibling) {
+        let sibling = scriptTag.nextSibling;
+        while (sibling) {
+          if (sibling.nodeType === 1) { // Element node
+            sibling.style.display = 'none';
+            sibling.style.visibility = 'hidden';
+            sibling.style.opacity = '0';
+            sibling.style.width = '0';
+            sibling.style.height = '0';
+            sibling.style.position = 'absolute';
+            sibling.style.left = '-9999px';
+          }
+          sibling = sibling.nextSibling;
+        }
+      }
+    }
+
+    // Run on page load and periodically to catch late-loading elements
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', hideClustrMaps);
+    } else {
+      hideClustrMaps();
+    }
+
+    // Also run after a short delay to catch dynamically created elements
+    setTimeout(hideClustrMaps, 100);
+    setTimeout(hideClustrMaps, 500);
+    setTimeout(hideClustrMaps, 1000);
+
+    // Set up a MutationObserver to hide elements as they're added
+    const observer = new MutationObserver(hideClustrMaps);
+    observer.observe(document.body || document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+  </script>
 </head>
 <body>
 
